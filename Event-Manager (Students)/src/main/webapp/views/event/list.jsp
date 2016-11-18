@@ -19,4 +19,20 @@
 <%@taglib prefix="security"	uri="http://www.springframework.org/security/tags"%>
 <%@taglib prefix="display" uri="http://displaytag.sf.net"%>
 
-// TODO: TO BE COMPLETED
+<display:table name="events" id="event"
+  requestURI="${requestURI}" pagesize="5"
+  class="displaytag">
+  
+	<spring:message code="event.title" var="titleHeader"/>
+	<display:column property="title" title="${titleHeader}" sortable="true" />
+	
+	<spring:message code="event.moment" var="momentHeader"/>
+	<display:column property="moment" title="${momentHeader}" sortable="true" />
+	
+	<spring:message code="event.description" var="descriptionHeader"/>
+	<display:column property="description" title="${descriptionHeader}" sortable="false" />
+	
+	<spring:message code="event.price" var="priceHeader"/>
+	<display:column property="price" title="${priceHeader}" sortable="false" />
+
+</display:table>
