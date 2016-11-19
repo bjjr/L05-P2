@@ -19,4 +19,56 @@
 <%@taglib prefix="security"	uri="http://www.springframework.org/security/tags"%>
 <%@taglib prefix="display" uri="http://displaytag.sf.net"%>
 
-// TODO: TO BE COMPLETED
+<form:form action="event/organiser/edit.do" modelAttribute="event">
+	
+	<form:hidden path="id"/>
+	<form:hidden path="version"/>
+	<form:hidden path="customers"/>
+	<form:hidden path="organiser"/>
+	
+	<div>
+		<spring:message code="event.title" var="titleText" />
+		<jstl:out value="${titleText}:" />
+		<form:input path="title"/>
+		<form:errors cssClass="error" path="title" />
+	</div>
+	
+	<div>
+		<spring:message code="event.moment" var="momentText" />
+		<jstl:out value="${momentText}:" />
+		<form:input cssClass="datepicker" path="moment"/>
+		<form:errors cssClass="error" path="moment" />
+	</div>
+	
+	<div>
+		<spring:message code="event.description" var="descriptionText" />
+		<jstl:out value="${descriptionText}:" />
+		<form:textarea path="description"/>
+		<form:errors cssClass="error" path="description" />
+	</div>
+	
+	<div>
+		<spring:message code="event.price" var="priceText" />
+		<jstl:out value="${priceText}:" />
+		<form:input path="price"/>
+		<form:errors cssClass="error" path="price" />
+	</div>
+	
+	<div>
+		<spring:message code="event.save" var="saveText"/>
+		<input type="submit" name="save" value="${saveText}"/>
+		
+		<jstl:if test="${event.id != 0}">
+			<spring:message code="event.delete" var="deleteText" />
+			<spring:message code="event.confirm.delete" var="confDeleteText" />
+			<input type="submit" name="delete" value="${deleteText}"
+			 onclick="return confirm('${confDeleteText}')" />
+		</jstl:if>
+		
+		<spring:message code="event.cancel" var="cancelText" />
+		<input type="button" name="cancel"
+			value="${cancelText}"
+			onclick="window.location='event/organiser/list-organised.do'" />
+	</div>
+	
+</form:form>
