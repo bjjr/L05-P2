@@ -27,29 +27,33 @@
 	<form:hidden path="organiser"/>
 	
 	<div>
-		<spring:message code="event.title" var="titleText" />
-		<jstl:out value="${titleText}:" />
+		<form:label path="title">
+			<spring:message code="event.title" />
+		</form:label>
 		<form:input path="title"/>
 		<form:errors cssClass="error" path="title" />
 	</div>
 	
 	<div>
-		<spring:message code="event.moment" var="momentText" />
-		<jstl:out value="${momentText}:" />
+		<form:label path="moment">
+			<spring:message code="event.moment" />
+		</form:label>
 		<form:input cssClass="datepicker" path="moment"/>
 		<form:errors cssClass="error" path="moment" />
 	</div>
 	
 	<div>
-		<spring:message code="event.description" var="descriptionText" />
-		<jstl:out value="${descriptionText}:" />
+		<form:label path="description">
+			<spring:message code="event.description" />
+		</form:label>
 		<form:textarea path="description"/>
 		<form:errors cssClass="error" path="description" />
 	</div>
 	
 	<div>
-		<spring:message code="event.price" var="priceText" />
-		<jstl:out value="${priceText}:" />
+		<form:label path="price">
+			<spring:message code="event.price" var="priceText" />
+		</form:label>
 		<form:input path="price"/>
 		<form:errors cssClass="error" path="price" />
 	</div>
